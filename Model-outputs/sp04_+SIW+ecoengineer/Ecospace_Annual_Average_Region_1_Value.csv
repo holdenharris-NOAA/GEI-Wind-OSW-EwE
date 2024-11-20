@@ -1,0 +1,51 @@
+"<HEADER software/>"
+EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
+Date,"11/20/2024 9:43:49 AM"
+"<HEADER ecopath/>"
+ModelName,"OSW high res model"
+ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
+"<HEADER ecosim/>"
+EcosimScenario,"sim01_test run"
+TimeSeries,-
+StartYear,2020
+"<HEADER ecospace/>"
+EcospaceScenario,sp04_+SIW+ecoengineer
+MapRows,60
+MapCols,60
+MapCellLength,0.5
+MapCellSize,500
+MapLatitude,0
+MapLongitude,0
+NoActiveCells,3600
+EcoSpaceTimeStepLength,0.0833333358168602
+CoordinateSystemWKT,"GEOGCS['WGS 84', DATUM['WGS_1984', SPHEROID['WGS 84',6378137,298.257223563, AUTHORITY['EPSG','7030']], AUTHORITY['EPSG','6326']], PRIMEM['Greenwich',0, AUTHORITY['EPSG','8901']], UNIT['degree',0.01745329251994328, AUTHORITY['EPSG','9122']], AUTHORITY['EPSG','4326']]"
+ExternalDataConfigFile,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman STconfig.xml"
+"Layer 1 SIW","SIW grid"
+"Layer 1 Biofouling complexity","Epifauna Complexity"
+"<HEADER extra/>"
+Data,"Average regional value by fleet, group (1/kg x t/km^2)"
+Area,"Region 1"
+Number_of_cells,56
+"<HEADER end/>"
+
+Year,"fishery|big fish"
+1,0.1186887
+2,0.1182191
+3,0.1177746
+4,0.1175125
+5,0.1174407
+6,0.1174142
+7,0.1173272
+8,0.1171589
+9,0.1169339
+10,0.1166996
+11,0.715615
+12,0.7892287
+13,0.7961482
+14,0.8086485
+15,0.8262792
+16,0.8374445
+17,0.8427064
+18,0.8455744
+19,0.8468547
+20,0.8476217

@@ -1,0 +1,35 @@
+"<HEADER software/>"
+EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
+Date,"11/19/2024 3:02:05 PM"
+"<HEADER ecopath/>"
+ModelName,"OSW high res model"
+ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
+"<HEADER ecosim/>"
+EcosimScenario,"sim01_test run"
+TimeSeries,-
+StartYear,2020
+"<HEADER end/>"
+
+Data,"PredationMortality of medium fish"
+
+year\group,"big fish",
+2020,0.4525072
+2021,0.4525054
+2022,0.452532
+2023,0.4525516
+2024,0.4525301
+2025,0.4524862
+2026,0.4524808
+2027,0.4525368
+2028,0.4525891
+2029,0.4525523
+2030,0.4524496
+2031,0.4524176
+2032,0.4525353
+2033,0.4526749
+2034,0.452623
+2035,0.4523861
+2036,0.4522674
+2037,0.4525025
+2038,0.4528583
+2039,0.4528164

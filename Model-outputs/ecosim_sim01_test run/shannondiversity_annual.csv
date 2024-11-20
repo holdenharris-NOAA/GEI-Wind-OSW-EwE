@@ -1,0 +1,35 @@
+"<HEADER software/>"
+EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
+Date,"11/19/2024 3:02:05 PM"
+"<HEADER ecopath/>"
+ModelName,"OSW high res model"
+ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
+"<HEADER ecosim/>"
+EcosimScenario,"sim01_test run"
+TimeSeries,-
+StartYear,2020
+"<HEADER end/>"
+
+Data,ShannonDiversity
+
+year,value
+2020,1.228019
+2021,1.228013
+2022,1.228011
+2023,1.22801
+2024,1.228011
+2025,1.228014
+2026,1.228014
+2027,1.22801
+2028,1.228006
+2029,1.22801
+2030,1.228017
+2031,1.228018
+2032,1.228009
+2033,1.228
+2034,1.228006
+2035,1.228023
+2036,1.228029
+2037,1.228009
+2038,1.227985
+2039,1.227993

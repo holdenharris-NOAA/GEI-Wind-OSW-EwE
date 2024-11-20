@@ -1,0 +1,50 @@
+"<HEADER software/>"
+EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
+Date,"11/20/2024 9:38:30 AM"
+"<HEADER ecopath/>"
+ModelName,"OSW high res model"
+ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
+"<HEADER ecosim/>"
+EcosimScenario,"sim01_test run"
+TimeSeries,-
+StartYear,2020
+"<HEADER ecospace/>"
+EcospaceScenario,sp02_+SIW
+MapRows,60
+MapCols,60
+MapCellLength,0.5
+MapCellSize,500
+MapLatitude,0
+MapLongitude,0
+NoActiveCells,3600
+EcoSpaceTimeStepLength,0.0833333358168602
+CoordinateSystemWKT,"GEOGCS['WGS 84', DATUM['WGS_1984', SPHEROID['WGS 84',6378137,298.257223563, AUTHORITY['EPSG','7030']], AUTHORITY['EPSG','6326']], PRIMEM['Greenwich',0, AUTHORITY['EPSG','8901']], UNIT['degree',0.01745329251994328, AUTHORITY['EPSG','9122']], AUTHORITY['EPSG','4326']]"
+ExternalDataConfigFile,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman STconfig.xml"
+"Layer 1 SIW","SIW grid"
+"<HEADER extra/>"
+Data,"Average regional value by fleet, group (1/kg x t/km^2)"
+Area,"Region 1"
+Number_of_cells,56
+"<HEADER end/>"
+
+Year,"fishery|big fish"
+1,0.09797222
+2,0.09637964
+3,0.09580573
+4,0.09535471
+5,0.09488059
+6,0.09437903
+7,0.09388719
+8,0.09343656
+9,0.09304503
+10,0.09271076
+11,0.5635846
+12,0.6201841
+13,0.6245013
+14,0.6329411
+15,0.6447551
+16,0.6529391
+17,0.6568776
+18,0.6592088
+19,0.6601539
+20,0.6602758

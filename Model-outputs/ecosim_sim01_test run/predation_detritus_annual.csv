@@ -1,0 +1,35 @@
+"<HEADER software/>"
+EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
+Date,"11/19/2024 3:02:05 PM"
+"<HEADER ecopath/>"
+ModelName,"OSW high res model"
+ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
+"<HEADER ecosim/>"
+EcosimScenario,"sim01_test run"
+TimeSeries,-
+StartYear,2020
+"<HEADER end/>"
+
+Data,"PredationMortality of detritus"
+
+year\group,"mobile inverts",
+2020,0.1025646
+2021,0.1025655
+2022,0.1025618
+2023,0.1025599
+2024,0.1025642
+2025,0.1025703
+2026,0.102569
+2027,0.1025594
+2028,0.1025532
+2029,0.1025617
+2030,0.1025771
+2031,0.1025777
+2032,0.1025565
+2033,0.1025387
+2034,0.1025539
+2035,0.102591
+2036,0.1025997
+2037,0.102555
+2038,0.1025066
+2039,0.1025302
