@@ -1,6 +1,6 @@
 "<HEADER software/>"
 EwEVersion,"6.7.0.19005 (compiled 6/26/1943)"
-Date,"11/19/2024 3:05:59 PM"
+Date,"11/20/2024 9:57:14 AM"
 "<HEADER ecopath/>"
 ModelName,"OSW high res model"
 ModelSource,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman.eweaccdb"
@@ -10,40 +10,40 @@ TimeSeries,-
 StartYear,2020
 "<HEADER ecospace/>"
 EcospaceScenario,sp01_base
-MapRows,10
-MapCols,10
+MapRows,60
+MapCols,60
 MapCellLength,0.5
-MapCellSize,0.004499116
+MapCellSize,500
 MapLatitude,0
 MapLongitude,0
-NoActiveCells,100
+NoActiveCells,3600
 EcoSpaceTimeStepLength,0.0833333358168602
 CoordinateSystemWKT,"GEOGCS['WGS 84', DATUM['WGS_1984', SPHEROID['WGS 84',6378137,298.257223563, AUTHORITY['EPSG','7030']], AUTHORITY['EPSG','6326']], PRIMEM['Greenwich',0, AUTHORITY['EPSG','8901']], UNIT['degree',0.01745329251994328, AUTHORITY['EPSG','9122']], AUTHORITY['EPSG','4326']]"
 ExternalDataConfigFile,"C:\Users\holden.harris\Documents\Research\R03 OSW\NCEAS GEI-Wind\EwEE Strawman Model\OSW strawman STconfig.xml"
 "<HEADER extra/>"
 Data,"Average catch by fleet, group (t/km^2)"
 Area,"Total area (km^2)"
-Number_of_cells,100
+Number_of_cells,3600
 "<HEADER end/>"
 
 Year,"fishery|big fish"
-1,0.1200002
-2,0.1200005
-3,0.1200011
-4,0.1200015
-5,0.1200021
-6,0.1200025
-7,0.1200031
-8,0.1200035
-9,0.1200041
-10,0.1200045
-11,0.120005
-12,0.1200055
-13,0.120006
-14,0.1200064
-15,0.1200069
-16,0.1200074
-17,0.1200079
-18,0.1200084
-19,0.1200089
-20,0.1200094
+1,0.09510379
+2,0.09353102
+3,0.09293481
+4,0.09247333
+5,0.09201296
+6,0.09154537
+7,0.09109262
+8,0.09067312
+9,0.09029954
+10,0.08997289
+11,0.08968493
+12,0.08942399
+13,0.08917958
+14,0.08894617
+15,0.08872288
+16,0.08851165
+17,0.08831512
+18,0.08813513
+19,0.08797187
+20,0.08782408
