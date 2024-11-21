@@ -27,13 +27,15 @@ if (experiment_choice == 1) {
   ## Experiment 1 --------------------------------------------------------------
   ## Compares scenarios with piece-wise environmental drivers
   spa_scenarios  = c("sp01_base", "sp02_+SIW", 
-                     "sp03_+ecoengineer", "sp04_+SIW+ecoengineer")
-  spa_scen_names = c("01 Base",  "02 +SIW",   
-                     "03 +EcoEng", "04 +SIW +EcoEng")
+                     "sp04_+SIW+ecoengineer", "sp05_+SIW+ee+fish-rock-SIW",
+                     "sp06_+SIW+ee+fish-SIW")
+  spa_scen_names = c("01 Base",    "02 +SIW",   
+                     "03 +EcoEng", "04 +fish rock & SIW",
+                     "05 +fish SIW only")
   out_file_notes = "test-STEdrivers"  ## label outputs
   
   dir_out <- "./Compare-outputs/"  ## Folder where outputs will be stored
-  col_spa <- c("darkgoldenrod", "indianred2", "steelblue4", "darkorchid4")
+  col_spa <- c("darkgoldenrod", "indianred2", "steelblue4", "darkorchid4", "green")
   
 
 } else if (experiment_choice == 2) {
@@ -155,7 +157,116 @@ for (i in 1:length(spa_scenarios)) {
   colnames(spaB_xM) = colnames(simB_xY) = fg_df$group_name
   
   ## Add to list
-  ls_spaB_xY[[i]] <- spaB_xY; ls_spaB_xM[[i]] <- spaB_xM
-  ls_spaC_xY[[i]] <- spaC_xY; ls_spaC_xM[[i]] <- spaC_xM
+  ls_spaB_xY[[i]] <- spaB_xY
+#  ls_spaC_xY[[i]] <- spaC_xY
 }
+
+
+## -----------------------------------------------------------------------------
+##
+## Plot biomasses
+## Note: Make sure PDF readers are closed before running pdf()
+
+## Setup for plots -----------------------------------------------------------
+
+## Plotting parameters
+col_sim = rgb(0.2, 0.7, .1, alpha = 0.6) ## rgb (red, green, blue, alpha)
+#col_spa <- adjustcolor(col_spa, alpha.f = 1) ## Adjust transparancy
+
+num_plot_pages = 1; x_break = 5; y_break = 4; x_cex = 0.9; y_cex = 0.9; x_las = 2;
+sim_lty = 1; spa_lty = 1
+sim_lwd = 2; spa_lwd = 1; obs_pch = 16; obs_cex = 0.8;
+main_cex = 0.85; leg_cex = 0.9; leg_pos = 'topleft';leg_inset = 0.1
+#simB_scaled = spaB_scaled_ls
+
+## Set number of plots per page
+set.mfrow = f.get_plot_dims(x=num_fg / num_plot_pages, round2=4)
+par(mfrow=set.mfrow, mar=c(1, 2, 1, 2))
+plots_per_pg = 9
+
+## -----------------------------------------------------------------------------
+##
+## Plot by Year (xY)
+
+pdf_file_name_xY = "Scenario-comp.pdf"
+pdf(pdf_file_name_xY, onefile = TRUE)
+
+print(paste("Writing", pdf_file_name_xY))
+x = year_series
+
+## Set number of plots per page
+set.mfrow = f.get_plot_dims(x=num_fg / num_plot_pages, round2=4)
+par(mfrow=set.mfrow, mar=c(1, 2, 1, 2))
+plots_per_pg = set.mfrow[1] * set.mfrow[2]
+
+for(i in 1:num_fg){
+  #for(i in 1:19){
+  grp  = fg_df$group_name[i]
+  simB = simB_xY[,i] 
+  spaB_ls <- lapply(ls_spaB_xY, function(df) df[, i]) ## Extract the i column from each data frame in the list
+  
+  ## Scale to the average of a given timeframe
+  simB_scaled = simB / mean(simB[1:init_years_toscale], na.rm = TRUE)
+  spaB_scaled_ls = list()
+  for(j in 1:length(spa_scenarios)){
+    spaB               <- spaB_ls[[j]]
+    spaB_scaled        <- spaB / mean(spaB[1:init_years_toscale], na.rm = TRUE)
+    spaB_scaled_ls[[j]] <- spaB_scaled
+  }
+  
+  ##-------------------------------------------------------------------------------  
+  ## PLOT 
+  
+  ## Legend plots -------------------------------------------
+  if(i %in% seq(1, num_fg, by = plots_per_pg-1)) {
+    plot(0, 0, type='n', xlim=c(0,1), ylim=c(0,1), xaxt='n', yaxt='n', 
+         xlab='', ylab='', bty='n') # Create an empty plot
+    legend(leg_pos, inset = 0.1, bg="gray90", box.lty = 0,
+           legend=c('Ecosim', spa_scen_names),
+           lty = c(NA, sim_lty, rep(spa_lty, length(spaB_scaled_ls))), 
+           lwd = c(NA, sim_lwd+1, rep(spa_lwd+1, length(spaB_scaled_ls))),
+           pch=c(obs_pch, NA, rep(NA, length(spaB_scaled_ls))), 
+           col =c(col_sim, col_spa), 
+           cex = leg_cex)
+  }
+  
+  ## Data plots -------------------------------------------
+  ## Determine y-axis range and initialize plot
+  min = min(simB_scaled, simB_scaled, unlist(spaB_scaled_ls), na.rm=T) * 0.9
+  max = max(simB_scaled, simB_scaled, unlist(spaB_scaled_ls), na.rm=T) * 1.1
+  plot(x, rep("", length(x)), type='b', 
+       ylim = c(min, max), xaxt = 'n', yaxt = 'n',
+       xlab = '', ylab='', bty = 'n')
+  title(main = grp, line=-.6, cex.main = main_cex) ## Add title
+  
+  ## Get years from date series
+  posx = as.POSIXlt(date_series)
+  x_years = unique(posx$year + 1900)
+  end_y = max(x_years)
+  start_y = min(x_years)
+  
+  ## Setup X-axis
+  year_series <- seq(as.Date(paste0(start_y, "-01-01")), as.Date(paste0(end_y,   "-12-01")), by = "1 year")
+  num_breaks_x <- round((end_y - start_y) / x_break) ## Determine x-axis breaks
+  x_ticks <- pretty(x, n = num_breaks_x)
+  xlab = paste0("'", substring(format(x_ticks, "%Y"), nchar(format(x_ticks, "%Y")) - 1))
+  axis(1, at = x_ticks, labels = xlab, cex.axis = x_cex, las = x_las)
+  
+  ## Setup Y-axis
+  y_ticks = pretty(seq(min, max, by = (max-min)/10), n = y_break)
+  axis(2, at = y_ticks, labels = y_ticks, las = 1, cex.axis = y_cex)
+  abline(h=1, col='lightgray')
+  
+  ## Plot outputs: Ecosim (green line), Ecospace (blue line), Observed (black dots)
+  #if(length(obsB_scaled)>0) points(year_series, obsB_scaled, pch=16, cex=obs_cex, col = col_obs) ## Plot observed data, if it's present
+  lines(x, simB_scaled, lty=sim_lty, lwd = sim_lwd,  col = col_sim) ## Plot Ecosim
+  if(is.list(spaB_scaled_ls)) {     ## If it's a list, loop through each element and plot
+    for(j in seq_along(spaB_scaled_ls)) {
+      lines(x, spaB_scaled_ls[[j]], lty=spa_lty, lwd=spa_lwd, col=col_spa[j]) # Plot each Ecospace projection. Use the j-th color in the palette for each line.
+    }
+    #} else if(is.list(spaB_scaled_ls)==FALSE) { # If it's not a list, but a vector, plot directly
+    #  lines(x, spaB_scaled, lty=1, lwd=spa_lwd, col=col_spa[1]) # Plot Ecospace
+  }
+}
+dev.off()    
 
